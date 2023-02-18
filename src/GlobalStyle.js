@@ -16,10 +16,10 @@ code {
     monospace;
 }
 
-ul {
+/* ul {
   list-style: none;
   padding: 0;
-}
+} */
 
 h1,
 h2,
