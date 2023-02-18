@@ -24,13 +24,14 @@ export class App extends Component {
 
   addMaterial = async values => {
     try {
-      this.setState({ isLoading: true });
+      // this.setState({ isLoading: true });
       const material = await API.addMaterial(values);
       this.setState(state => ({
         materials: [...state.materials, material],
-        isLoading: false,
+        // isLoading: false,
       }));
     } catch (error) {
+      this.setState({ error: true, isLoading: false });
       console.log(error);
     }
   };
