@@ -19,6 +19,7 @@ export const MaterialEditorForm = ({ onSubmit }) => {
           <label htmlFor="">
             URL
             <Field name="link" type="text" />
+            {/* true code (type="url") */}
             {/* <Field name="link" type="url" /> */}
           </label>
           <br />
