@@ -30,8 +30,7 @@ export class Material extends Component {
   closeModal = () => this.setState({ isModalOpen: false });
 
   render() {
-    const { item, onDelete } = this.props;
-    // const { item, onUpdate, onDelete } = this.props;
+    const { item, onUpdate, onDelete } = this.props;
     const { isModalOpen } = this.state;
 
     return (
@@ -54,9 +53,19 @@ export class Material extends Component {
 
         {isModalOpen && (
           <Modal onClose={this.closeModal}>
-            <h1>Title modal</h1>
+            <h2>Edit material</h2>
+            <p>Сlick the button 'Editing' to edit the material</p>
+            <button
+              type="button"
+              onClick={() => {
+                onUpdate({ id: item.id, title: Date.now() });
+                this.closeModal();
+              }}
+            >
+              Editing
+            </button>
             <button type="button" onClick={this.closeModal}>
-              Close modal
+              Close
             </button>
           </Modal>
         )}
