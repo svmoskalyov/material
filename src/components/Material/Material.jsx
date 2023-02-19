@@ -1,24 +1,25 @@
 import { Component } from 'react';
+import { Modal } from 'components/Modal/Modal';
 
-const EditMaterialModal = ({ onClose, onEdit }) => {
-  return (
-    <div>
-      <h2>Modal editor window</h2>
-      <button
-        type="button"
-        onClick={() => {
-          onEdit();
-          onClose();
-        }}
-      >
-        Editing
-      </button>
-      <button type="button" onClick={onClose}>
-        Close
-      </button>
-    </div>
-  );
-};
+// const EditMaterialModal = ({ onClose, onEdit }) => {
+//   return (
+//     <div>
+//       <h2>Modal editor window</h2>
+//       <button
+//         type="button"
+//         onClick={() => {
+//           onEdit();
+//           onClose();
+//         }}
+//       >
+//         Editing
+//       </button>
+//       <button type="button" onClick={onClose}>
+//         Close
+//       </button>
+//     </div>
+//   );
+// };
 
 export class Material extends Component {
   state = {
@@ -29,7 +30,8 @@ export class Material extends Component {
   closeModal = () => this.setState({ isModalOpen: false });
 
   render() {
-    const { item, onUpdate, onDelete } = this.props;
+    const { item, onDelete } = this.props;
+    // const { item, onUpdate, onDelete } = this.props;
     const { isModalOpen } = this.state;
 
     return (
@@ -51,11 +53,19 @@ export class Material extends Component {
         </button>
 
         {isModalOpen && (
+          <Modal onClose={this.closeModal}>
+            <h1>Title modal</h1>
+            <button type="button" onClick={this.closeModal}>
+              Close modal
+            </button>
+          </Modal>
+        )}
+        {/* {isModalOpen && (
           <EditMaterialModal
             onClose={this.closeModal}
             onEdit={() => onUpdate({ id: item.id, title: Date.now() })}
           />
-        )}
+        )} */}
       </div>
     );
   }
