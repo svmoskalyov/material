@@ -1,26 +1,6 @@
 import { Component } from 'react';
 import { Modal } from 'components/Modal/Modal';
 
-// const EditMaterialModal = ({ onClose, onEdit }) => {
-//   return (
-//     <div>
-//       <h2>Modal editor window</h2>
-//       <button
-//         type="button"
-//         onClick={() => {
-//           onEdit();
-//           onClose();
-//         }}
-//       >
-//         Editing
-//       </button>
-//       <button type="button" onClick={onClose}>
-//         Close
-//       </button>
-//     </div>
-//   );
-// };
-
 export class Material extends Component {
   state = {
     showModal: false,
@@ -34,7 +14,6 @@ export class Material extends Component {
 
   render() {
     const { item, onUpdate, onDelete } = this.props;
-
     const { showModal } = this.state;
 
     return (
@@ -73,12 +52,6 @@ export class Material extends Component {
             </button>
           </Modal>
         )}
-        {/* {isModalOpen && (
-          <EditMaterialModal
-            onClose={this.closeModal}
-            onEdit={() => onUpdate({ id: item.id, title: Date.now() })}
-          />
-        )} */}
       </div>
     );
   }
