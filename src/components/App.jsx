@@ -80,8 +80,6 @@ export class App extends Component {
             onUpdate={this.updateMaterial}
           />
         )}
-
-
       </Box>
     );
   }
