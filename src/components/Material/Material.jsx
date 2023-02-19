@@ -23,15 +23,19 @@ import { Modal } from 'components/Modal/Modal';
 
 export class Material extends Component {
   state = {
-    isModalOpen: false,
+    showModal: false,
   };
 
-  openModal = () => this.setState({ isModalOpen: true });
-  closeModal = () => this.setState({ isModalOpen: false });
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
+  };
 
   render() {
     const { item, onUpdate, onDelete } = this.props;
-    const { isModalOpen } = this.state;
+
+    const { showModal } = this.state;
 
     return (
       <div>
@@ -47,24 +51,24 @@ export class Material extends Component {
         <button type="button" onClick={() => onDelete(item.id)}>
           Delete
         </button>
-        <button type="button" onClick={this.openModal}>
+        <button type="button" onClick={this.toggleModal}>
           Editing
         </button>
 
-        {isModalOpen && (
-          <Modal onClose={this.closeModal}>
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
             <h2>Edit material</h2>
             <p>Сlick the button 'Editing' to edit the material</p>
             <button
               type="button"
               onClick={() => {
                 onUpdate({ id: item.id, title: Date.now() });
-                this.closeModal();
+                this.toggleModal();
               }}
             >
               Editing
             </button>
-            <button type="button" onClick={this.closeModal}>
+            <button type="button" onClick={this.toggleModal}>
               Close
             </button>
           </Modal>
