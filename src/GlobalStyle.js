@@ -16,10 +16,10 @@ code {
     monospace;
 }
 
-/* ul {
+ul {
   list-style: none;
   padding: 0;
-} */
+}
 
 h1,
 h2,
@@ -28,5 +28,15 @@ p,
 ul,
 li {
   margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
 }
 `;
