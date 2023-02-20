@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { Box } from './Box';
 import { Section } from './Section/Section';
 import { Loader } from './Loader/Loader';
@@ -87,6 +88,7 @@ export class App extends Component {
             />
           </Section>
         )}
+        <ToastContainer autoClose={3000} />
       </Box>
     );
   }
