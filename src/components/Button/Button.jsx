@@ -3,7 +3,7 @@ import { StyledButton } from './Button.styled';
 export const Button = ({
   type = 'button',
   icon: Icon = null,
-  disabled = false,
+  disabl = false,
   children,
   onClick,
   ...allyProps
@@ -11,7 +11,7 @@ export const Button = ({
   return (
     <StyledButton
       type={type}
-      disabled={disabled}
+      disabled={disabl}
       onClick={onClick}
       {...allyProps}
     >
