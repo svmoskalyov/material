@@ -1,4 +1,18 @@
-import { Field, Form, Formik } from 'formik';
+import { Formik } from 'formik';
+import * as yup from 'yup';
+import { AiFillFileAdd } from 'react-icons/ai';
+import { Button } from 'components/Button/Button';
+import { Forma, Input, Label } from './MaterialEditorForm.styled';
+
+const personSchema = yup.object({
+  title: yup.string().required(),
+  link: yup.string().url().nullable(),
+});
+
+const initialValues = {
+  title: '',
+  link: '',
+};
 
 export const MaterialEditorForm = ({ onSubmit }) => {
   const handleSubmit = async (values, actions) => {
@@ -8,25 +22,30 @@ export const MaterialEditorForm = ({ onSubmit }) => {
   };
 
   return (
-    <Formik initialValues={{ title: '', link: '' }} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={personSchema}
+      onSubmit={handleSubmit}
+    >
       {({ isSubmitting }) => (
-        <Form>
-          <label htmlFor="">
+        <Forma>
+          <Label>
             Description
-            <Field name="title" type="text" />
-          </label>
-          <br />
-          <label htmlFor="">
+            <Input type="text" name="title" required />
+          </Label>
+          <Label>
             URL
-            <Field name="link" type="text" />
-            {/* true code (type="url") */}
-            {/* <Field name="link" type="url" /> */}
-          </label>
-          <br />
-          <button type="submit" disabled={isSubmitting}>
+            <Input
+              type="url"
+              name="link"
+              required
+              placeholder="https://example.com"
+            />
+          </Label>
+          <Button type="submit" icon={AiFillFileAdd} disabled={isSubmitting}>
             Add material
-          </button>
-        </Form>
+          </Button>
+        </Forma>
       )}
     </Formik>
   );
