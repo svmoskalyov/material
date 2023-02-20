@@ -1,8 +1,10 @@
 import { Component } from 'react';
 import { Box } from './Box';
-import * as API from 'services/api';
+import { Section } from './Section/Section';
+import { Loader } from './Loader/Loader';
 import { MaterialEditorForm } from './MaterialEditorForm/MaterialEditorForm';
 import { MaterialList } from './MaterialList/MaterialList';
+import * as API from 'services/api';
 
 export class App extends Component {
   state = {
@@ -70,15 +72,20 @@ export class App extends Component {
         {error && (
           <p>Oh! Something went wrong. Reload the page and try again time.</p>
         )}
-        <MaterialEditorForm onSubmit={this.addMaterial} />
+        <Section title="ADD MATERIAL">
+          <MaterialEditorForm onSubmit={this.addMaterial} />
+        </Section>
+
         {isLoading ? (
-          'LOADING...'
+          <Loader />
         ) : (
-          <MaterialList
-            items={materials}
-            onDelete={this.deleteMaterial}
-            onUpdate={this.updateMaterial}
-          />
+          <Section title="LIST MATERIALS">
+            <MaterialList
+              items={materials}
+              onDelete={this.deleteMaterial}
+              onUpdate={this.updateMaterial}
+            />
+          </Section>
         )}
       </Box>
     );
