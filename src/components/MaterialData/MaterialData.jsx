@@ -23,17 +23,6 @@ export class MaterialData extends Component {
     status: Status.IDLE,
   };
 
-  //   async componentDidMount() {
-  //     try {
-  //       this.setState({ status: Status.PENDING });
-  //       const materials = await API.getMaterials();
-  //       this.setState({ materials, status: Status.RESOLVED });
-  //     } catch (error) {
-  //       this.setState({ error, status: Status.REJECTED });
-  //       console.log(error);
-  //     }
-  //   }
-
   getMaterial = async () => {
     try {
       this.setState({ status: Status.PENDING });
@@ -120,35 +109,5 @@ export class MaterialData extends Component {
         </Section>
       );
     }
-
-    // return (
-    //   <>
-    //     <Section title="ADD MATERIAL">
-    //       {/* <MaterialEditorForm onSubmit={this.addMaterial} /> */}
-    //     </Section>
-    //     <Section title="LIST MATERIALS">
-    //       {/* <MaterialList
-    //       items={materials}
-    //       onDelete={this.deleteMaterial}
-    //       onUpdate={this.updateMaterial}
-    //     /> */}
-    //     </Section>
-    //   </>
-    // );
-
-    //   const { materials, isLoading, error } = this.state;
-    //         {error && (
-    //           <p>Oh! Something went wrong. Reload the page and try again time.</p>
-    //         )}
-    //           <MaterialEditorForm onSubmit={this.addMaterial} />
-    //         {isLoading ? (
-    //           <Loader />
-    //         ) : (
-    //             <MaterialList
-    //               items={materials}
-    //               onDelete={this.deleteMaterial}
-    //               onUpdate={this.updateMaterial}
-    //             />
-    //         )}
   }
 }
