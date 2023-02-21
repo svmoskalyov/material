@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { AiFillDelete, AiFillEdit, AiFillCloseSquare } from 'react-icons/ai';
+import { AiFillDelete, AiFillEdit, AiFillCloseCircle } from 'react-icons/ai';
 import { Box } from 'components/Box';
 import { Button } from 'components/Button/Button';
 import { Modal } from 'components/Modal/Modal';
@@ -73,7 +73,7 @@ export class Material extends Component {
               </Button>
               <Button
                 type="button"
-                icon={AiFillCloseSquare}
+                icon={AiFillCloseCircle}
                 onClick={this.toggleModal}
               >
                 Close
