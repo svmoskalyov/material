@@ -39,13 +39,19 @@ export class Material extends Component {
         </Item>
 
         <Item>
-          <Button type="button" icon={AiFillEdit} onClick={this.toggleModal}>
+          <Button
+            type="button"
+            icon={AiFillEdit}
+            onClick={this.toggleModal}
+            aria-label="editing material"
+          >
             Editing
           </Button>
           <Button
             type="button"
             icon={AiFillDelete}
             onClick={() => onDelete(item.id)}
+            aria-label="delete material"
           >
             Delete
           </Button>
@@ -68,6 +74,7 @@ export class Material extends Component {
                   onUpdate({ id: item.id, title: Date.now() });
                   this.toggleModal();
                 }}
+                aria-label="editing material in modal window"
               >
                 Editing
               </Button>
@@ -75,6 +82,7 @@ export class Material extends Component {
                 type="button"
                 icon={AiFillCloseCircle}
                 onClick={this.toggleModal}
+                aria-label="close modal window"
               >
                 Close
               </Button>

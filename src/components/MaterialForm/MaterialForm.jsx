@@ -44,7 +44,12 @@ export const MaterialForm = ({ onSubmit }) => {
             />
             <ErrorMessage name="link" />
           </Label>
-          <Button type="submit" icon={AiFillFileAdd} disabled={isSubmitting}>
+          <Button
+            type="submit"
+            icon={AiFillFileAdd}
+            disabled={isSubmitting}
+            aria-label="add material"
+          >
             Add material
           </Button>
         </Forma>
