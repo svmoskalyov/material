@@ -1,6 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { AiFillFileAdd } from 'react-icons/ai';
+import PropTypes from 'prop-types';
 import { Button } from 'components/Button/Button';
 import { Forma, Input, Label } from './MaterialForm.styled';
 
@@ -56,4 +57,8 @@ export const MaterialForm = ({ onSubmit }) => {
       )}
     </Formik>
   );
+};
+
+MaterialForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
