@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Material } from 'components/Material/Material';
 import { List, Item, Num } from './MaterialList.styled';
 
@@ -12,4 +13,8 @@ export const MaterialList = ({ items, ...otherProps }) => {
       ))}
     </List>
   );
+};
+
+MaterialList.propTypes = {
+  items: PropTypes.array.isRequired,
 };
